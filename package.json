@@ -1,0 +1,19 @@
+{
+  "name": "random-callback",
+  "version": "0.0.1",
+  "description": "Maybe executes a callback function or maybe not",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Teamoh/Random-Callback.git"
+  },
+  "author": "teamoh",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Teamoh/Random-Callback/issues"
+  },
+  "homepage": "https://github.com/Teamoh/Random-Callback#readme"
+}
