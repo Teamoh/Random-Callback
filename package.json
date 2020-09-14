@@ -1,7 +1,7 @@
 {
   "name": "random-callback",
   "version": "0.0.1",
-  "description": "Maybe executes a callback function or maybe not",
+  "description": "Execute a callback function or not.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
