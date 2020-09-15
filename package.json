@@ -2,7 +2,7 @@
   "name": "random-callback",
   "version": "0.0.1",
   "description": "Execute a callback function or not.",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/Teamoh/Random-Callback/issues"
   },
-  "homepage": "https://github.com/Teamoh/Random-Callback#readme"
+  "homepage": "https://github.com/Teamoh/Random-Callback#readme",
+  "devDependencies": {
+    "jest": "^26.4.2"
+  }
 }
