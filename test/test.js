@@ -15,15 +15,14 @@ describe('Random callback', () => {
 
     test('Does not execute the callback', () => {
         let hasBeenCalled = true;
+        let callback;
 
         do {
-            const callback = jest.fn();
+            callback = jest.fn();
             hasBeenCalled = randomCallback(callback);
-
-            if (!hasBeenCalled) {
-                expect(callback).not.toHaveBeenCalled();
-            }
         } while (hasBeenCalled);
+
+        expect(callback).not.toHaveBeenCalled();
     });
 
     test('Has boolean return value', () => {
@@ -36,17 +35,15 @@ describe('Random callback', () => {
         }
     });
 
-    test('Is executed with arguments', () => {
+    test('Is executed with given arguments', () => {
         const callback = jest.fn();
 
         let hasBeenCalled = false;
 
         do {
             hasBeenCalled = randomCallback(callback, null, 'Hello', 'World');
-
-            if (hasBeenCalled) {
-                expect(callback).toHaveBeenCalledWith('Hello', 'World');
-            }
         } while (!hasBeenCalled);
+
+        expect(callback).toHaveBeenCalledWith('Hello', 'World');
     });
 });
