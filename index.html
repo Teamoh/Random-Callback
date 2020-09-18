@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	<title>Random-Callback</title>
+</head>
+<body>
+    <script>
+        (function () {
+            window.module = window.module || {};
+            window.module.exports = window.module.exports || {};
+        })();
+    </script>
+    <script src="src/index.js"></script>
+    <script>
+        (function () {
+            const randomCallback = module.exports;
+
+            const callback = function (message) {
+                console.log(message);
+            };
+
+            let hasBeenCalled;
+
+            hasBeenCalled = randomCallback(callback, 1, 'I will be called'); // logs 'I will be called'
+            console.log(hasBeenCalled); // true
+
+            hasBeenCalled = randomCallback(callback, 0, 'I will not be called'); // nothing
+            console.log(hasBeenCalled); // false
+        })();
+    </script>
+</body>	
+</html>
