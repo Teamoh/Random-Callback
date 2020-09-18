@@ -1,18 +1,25 @@
 # Random-Callback
 
-Execute a callback function or not, based on randomness.
+Execute a callback function or don't, based on randomness.
 
 ## Example
 
 ```js
 import randomCallback from 'randomCallback/src/index';
 
-var callback = function () {
-    console.log('Callback was called');
+const callback = function (message) {
+    console.log(message);
 };
 
-randomCallback(callback); // logs 'Callback was called'
-randomCallback(callback); // nothing
+const message = 'Callback was called';
+let hasBeenCalled;
+
+hasBeenCalled = randomCallback(callback, message); // logs 'Callback was called'
+console.log(hasBeenCalled); // true
+
+hasBeenCalled = randomCallback(callback, message); // nothing
+console.log(hasBeenCalled); // false
+
 ```
 
 ## API
