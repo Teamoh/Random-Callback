@@ -1,6 +1,6 @@
 {
   "name": "random-callback",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Request a function execution based on randomness and a given chance.",
   "main": "src/index.js",
   "scripts": {
