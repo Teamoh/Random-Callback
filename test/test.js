@@ -1,48 +1,32 @@
 const randomCallback = require('../src/index');
 
 describe('Random callback', () => {
-    test('Executes the callback', () => {
+    test('Executes the callback with chance=1', () => {
         const callback = jest.fn();
 
-        let hasBeenCalled = false;
+        randomCallback(callback, 1);
 
-        do {
-            hasBeenCalled = randomCallback(callback);
-        } while (!hasBeenCalled);
-        
         expect(callback).toHaveBeenCalled();
     });
 
-    test('Does not execute the callback', () => {
-        let hasBeenCalled = true;
-        let callback;
+    test('Does not execute the callback with chance=0', () => {
+        const callback = jest.fn();
 
-        do {
-            callback = jest.fn();
-            hasBeenCalled = randomCallback(callback);
-        } while (hasBeenCalled);
+        randomCallback(callback, 0);
 
         expect(callback).not.toHaveBeenCalled();
     });
 
     test('Has boolean return value', () => {
-        for (let i = 0; i < 100; i++) {
-            const callback = jest.fn();
+        const callback = jest.fn();
 
-            expect(
-                typeof randomCallback(callback) === 'boolean'
-            ).toBeTruthy();
-        }
+        expect(typeof randomCallback(callback) === 'boolean').toBe(true);
     });
 
     test('Is executed with given arguments', () => {
         const callback = jest.fn();
 
-        let hasBeenCalled = false;
-
-        do {
-            hasBeenCalled = randomCallback(callback, null, 'Hello', 'World');
-        } while (!hasBeenCalled);
+        randomCallback(callback, 1, 'Hello', 'World');
 
         expect(callback).toHaveBeenCalledWith('Hello', 'World');
     });
