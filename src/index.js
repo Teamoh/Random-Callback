@@ -1,6 +1,11 @@
 'use strict';
 
-module.exports = function (callback, chance) {
+const config = {
+    defaultChance: 0.5,
+    restArgumentsStartIndex: 2
+};
+
+module.exports = function randomCallback(callback, chance) {
     var random, result, args;
 
     if (typeof callback !== 'function') {
@@ -9,7 +14,7 @@ module.exports = function (callback, chance) {
 
     if (chance === undefined) {
         // set default chance
-        chance = 0.5;
+        chance = config.defaultChance;
     }
 
     if (typeof chance !== 'number') {
@@ -27,7 +32,7 @@ module.exports = function (callback, chance) {
         const context = typeof global === 'undefined' ? window : global;
         
         // slice rest arguments and call the callback function
-        args = Array.prototype.slice.call(arguments, 2);
+        args = Array.prototype.slice.call(arguments, config.restArgumentsStartIndex);
         callback.apply(context, args);
     }
 
