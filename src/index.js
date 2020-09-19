@@ -22,10 +22,13 @@ module.exports = function (callback, chance) {
 
     if (chance > random) {
         result = true;
+
+        // use global object from NodeJS or window from browser environment as context
+        const context = typeof global === 'undefined' ? window : global;
         
         // slice rest arguments and call the callback function
         args = Array.prototype.slice.call(arguments, 2);
-        callback.apply(window, args);
+        callback.apply(context, args);
     }
 
     return result;
