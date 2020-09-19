@@ -39,6 +39,8 @@ console.log(hasBeenCalled); // true | false
 
 If `callback` is not a function or `chance` is not a number a `TypeError` will be thrown.
 
+The callback will always be executed with the global context (`global` in NodeJS environments and `window` in the browser environment).
+
 Returns a boolean which indicates if the function was executed.
 
 ## Randomness
